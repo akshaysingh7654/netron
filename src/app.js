@@ -416,6 +416,11 @@ class Application {
                     accelerator: 'CmdOrCtrl+U',
                     click: () => this.execute('toggle-names', null),
                 },
+                {
+                    id: 'view.show-horizontal',
+                    accelerator: 'CmdOrCtrl+T',
+                    click: () => this.execute('toggle-direction', null),
+                },
                 { type: 'separator' },
                 {
                     id: 'view.reload',
@@ -523,6 +528,10 @@ class Application {
         commandTable['view.show-names'] = {
             enabled: (context) => { return context.view && context.view.path ? true : false; },
             label: (context) => { return !context.view || !context.view.get('show-names') ? 'Show &Names' : 'Hide &Names'; }
+        };
+        commandTable['view.show-horizontal'] = {
+            enabled: (context) => { return context.view && context.view.path ? true : false; },
+            label: (context) => { return !context.view || !context.view.get('show-horizontal') ? 'Show &Horizontal' : 'Show &Vertical'; }
         };
         commandTable['view.reload'] = {
             enabled: (context) => { return context.view && context.view.path ? true : false; }
